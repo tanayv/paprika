@@ -30,11 +30,17 @@ router.get("/auth", (req, res) => {
         res.json(error);
     } );*/
 
+    let config = {
+        headers: {
+          Accept: application/json,
+        }
+      }
+
     axios.post("https://github.com/login/oauth/access_token", {
         "client_id": "Iv1.ab929d25982c75d7",
         "client_secret": "effd0f79f2737a8b2a008b250c029860b36fc380",
         "code": code,
-      })
+      }, config)
       .then(function (response) {
         res.json(response);
         console.log(response);
