@@ -65,8 +65,8 @@ router.post('/upload', upload.single('example'), (req, res, next) => {
         res.json({"fur": response.data});
       })
       .catch(function (error) {
-        res.json(error);
-        console.log(error);
+        res.json(error.response);
+        console.log(error.response);
       });
   })
 
