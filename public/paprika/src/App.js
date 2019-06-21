@@ -8,16 +8,12 @@ function App() {
   let uploader;
   if (typeof code !== undefined && code !== null) {
     console.log("RECEIVED CODE", code);
-    Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code, (response) => {
+    Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code)
+    .then((response) => {
       console.log(response);
-      uploader = <><form action="https://berlinwall.herokuapp.com/api/upload" method="POST" enctype="multipart/form-
-      data">
-     <input type="file" name="file" />
-     <input type="submit" value="Upload File"/>
-     </form></>;
-    }, (error) => {
+    }).catch((error) => {
       console.log(error);
-    });
+    })
   }
   return (
     
@@ -30,7 +26,10 @@ function App() {
           Sign In Using GitHub
         </a>
       </header>
-      {uploader}
+      <><form action="https://berlinwall.herokuapp.com/api/upload" method="POST" enctype="multipart/form-data">
+     <input type="file" name="example"/>
+     <input type="submit" value="Upload File"/>
+     </form></>;
     </div>
   );
 }

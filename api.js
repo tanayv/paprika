@@ -56,7 +56,7 @@ router.get("/auth", (req, res) => {
 router.post('/upload', upload.single('example'), (req, res, next) => {
     // req.file is the `example` file or whatever you have on the `name` attribute: <input type="file" name="example" />
     // I believe it is a `Buffer` object.
-    const encoded = req.file.buffer.toString('base64')
+    const encoded = Buffer.from(req.file);
     console.log(encoded);
     res.json(encoded);
   })
