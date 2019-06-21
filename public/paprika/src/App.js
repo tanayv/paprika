@@ -7,7 +7,11 @@ function App() {
   const code = urlParams.get('code');
   if (typeof code !== undefined) {
     console.log("RECEIVED CODE", code);
-    Axios.post("https://berlinwall.herokuapp.com/api/auth?code="+code);
+    Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code, (response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
   }
   return (
     
