@@ -58,7 +58,7 @@ router.post('/upload', upload.single('example'), (req, res, next) => {
         Authorization: "token " + state.access_token,
       }
     }
-    let path = `https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/test.png?client_secret=effd0f79f2737a8b2a008b250c029860b36fc380`;
+    let path = `https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/test42.png?client_secret=effd0f79f2737a8b2a008b250c029860b36fc380`;
     axios.put(path, payload, config)
       .then(function (response) {
         console.log("File Upload Response", response.data);
