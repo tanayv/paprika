@@ -37,9 +37,11 @@ router.get("/auth", (req, res) => {
       })
       .then(function (response) {
         res.json(response);
+        console.log(response);
       })
       .catch(function (error) {
         res.json(error);
+        console.log(error);
       });
 
       
