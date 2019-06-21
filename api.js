@@ -6,6 +6,7 @@ const state = {
 };
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
+const fs = require("fs");
 
 router.get("/", (req, res) => {
     res.json({
@@ -56,8 +57,7 @@ router.get("/auth", (req, res) => {
 router.post('/upload', upload.single('example'), (req, res, next) => {
     // req.file is the `example` file or whatever you have on the `name` attribute: <input type="file" name="example" />
     // I believe it is a `Buffer` object.
-    console.log(req.file);
-    const encoded = Buffer.from(req.file);
+    const encoded = new Buffer(fs.readFileSync(req.file.path)).toString("base64")
     console.log(encoded);
     res.json(encoded);
   })
