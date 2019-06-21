@@ -6,7 +6,7 @@ function App() {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
   let uploader;
-  if (typeof code !== undefined) {
+  if (typeof code !== undefined && code !== null) {
     console.log("RECEIVED CODE", code);
     Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code, (response) => {
       console.log(response);

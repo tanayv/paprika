@@ -42,8 +42,8 @@ router.get("/auth", (req, res) => {
         "code": code,
       }, config)
       .then(function (response) {
-        res.json(response);
-        console.log(response);
+        res.json({data: response});
+        console.log("Trimm", response.toString().substring(13,55));
       })
       .catch(function (error) {
         res.json(error);
