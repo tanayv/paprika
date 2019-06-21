@@ -45,7 +45,6 @@ router.get("/auth", (req, res) => {
 
 router.post('/upload', upload.single('example'), (req, res, next) => {
     const encoded = new Buffer(fs.readFileSync(req.file.path)).toString("base64")
-    res.json(encoded);
     let payload = {
       "message": "File added using Paprika",
       "committer": {
