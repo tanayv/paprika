@@ -1,4 +1,5 @@
 import React from "react";
+import axios from 'axios';
 
 class Uploader extends React.Component {
 
@@ -29,7 +30,7 @@ class Uploader extends React.Component {
                 'content-type': 'multipart/form-data'
             }
         }
-        return post(url, formData, config)
+        return axios.post(url, formData, config)
     }
 
     render() {
