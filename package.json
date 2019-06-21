@@ -20,6 +20,7 @@
   "homepage": "https://github.com/tanayv/paprika#readme",
   "dependencies": {
     "axios": "^0.19.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "multer": "^1.4.1"
   }
 }

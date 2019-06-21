@@ -5,10 +5,16 @@ import Axios from 'axios';
 function App() {
   const urlParams = new URLSearchParams(window.location.search);
   const code = urlParams.get('code');
+  let uploader;
   if (typeof code !== undefined) {
     console.log("RECEIVED CODE", code);
     Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code, (response) => {
       console.log(response);
+      uploader = <><form action="https://berlinwall.herokuapp.com/api/upload" method="POST" enctype="multipart/form-
+      data">
+     <input type="file" name="file" />
+     <input type="submit" value="Upload File"/>
+     </form></>;
     }, (error) => {
       console.log(error);
     });
@@ -24,6 +30,7 @@ function App() {
           Sign In Using GitHub
         </a>
       </header>
+      {uploader}
     </div>
   );
 }

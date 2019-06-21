@@ -1,6 +1,11 @@
 const axios = require("axios");
 const express = require("express");
 const router = express.Router();
+const state = {
+    access_token: ""
+};
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 router.get("/", (req, res) => {
     res.json({
@@ -28,7 +33,7 @@ router.get("/auth", (req, res) => {
     axios.post("https://github.com/login/oauth/access_token", {
         "client_id": "Iv1.ab929d25982c75d7",
         "client_secret": "effd0f79f2737a8b2a008b250c029860b36fc380",
-        "client_code": code,
+        "code": code,
       })
       .then(function (response) {
         res.json(response);
@@ -39,6 +44,14 @@ router.get("/auth", (req, res) => {
 
       
 });
+
+router.post('/upload', upload.single('example'), (req, res, next) => {
+    // req.file is the `example` file or whatever you have on the `name` attribute: <input type="file" name="example" />
+    // I believe it is a `Buffer` object.
+    const encoded = req.file.buffer.toString('base64')
+    console.log(encoded);
+    res.json(encoded);
+  })
 
 
 module.exports = router;
