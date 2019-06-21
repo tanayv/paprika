@@ -32,7 +32,7 @@ router.get("/auth", (req, res) => {
 
     let config = {
         headers: {
-          Accept: application/json,
+          Accept: "application/json",
         }
       }
 
