@@ -21,7 +21,7 @@ router.get("/auth", (req, res) => {
         res.json(response);
     }, (error) => {
         console.log("Error: ", error);
-        res.json(response);
+        res.json(error);
     } );
 });
 
