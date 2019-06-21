@@ -32,7 +32,8 @@ router.get("/auth", (req, res) => {
       }, config)
       .then(function (response) {
         console.log(response.data);
-        res.json({"hello": ""+response.data});
+        state.access_token = response.data.access_token;
+        res.json({"Msg": "Access Token Saved"});
       })
       .catch(function (error) {
         res.json(error);
@@ -57,20 +58,17 @@ router.post('/upload', upload.single('example'), (req, res, next) => {
       headers: {
         Authorization: "token " + state.access_token,
       }
-    }/*
-    axios.post("https://github.com/login/oauth/access_token", {
-        "client_id": "Iv1.ab929d25982c75d7",
-        "client_secret": "effd0f79f2737a8b2a008b250c029860b36fc380",
-        "code": code,
-      }, config)
+    }
+    let path = `https://api.github.com/repos/tanayv/paprika/public/paprika/public/bucket/test.png?client_secret=${client_secret}`;
+    axios.post(path, payload, config)
       .then(function (response) {
-        console.log("Trimm", response.data.toString().substring(13,55));
-        res.json({"hello": ""+response.data});
+        console.log("File Upload Response", response.data);
+        res.json({"fur": response.data});
       })
       .catch(function (error) {
         res.json(error);
         console.log(error);
-      });*/
+      });
   })
 
 
