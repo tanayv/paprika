@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/paprika/static/css/main.ab80326e.chunk.css",
+    "main.js": "/paprika/static/js/main.7c017def.chunk.js",
+    "main.js.map": "/paprika/static/js/main.7c017def.chunk.js.map",
+    "runtime~main.js": "/paprika/static/js/runtime~main.1a284417.js",
+    "runtime~main.js.map": "/paprika/static/js/runtime~main.1a284417.js.map",
+    "static/js/2.6225c6a3.chunk.js": "/paprika/static/js/2.6225c6a3.chunk.js",
+    "static/js/2.6225c6a3.chunk.js.map": "/paprika/static/js/2.6225c6a3.chunk.js.map",
+    "index.html": "/paprika/index.html",
+    "precache-manifest.ebc4439479ad12f71973bcd114782f46.js": "/paprika/precache-manifest.ebc4439479ad12f71973bcd114782f46.js",
+    "service-worker.js": "/paprika/service-worker.js",
+    "static/css/main.ab80326e.chunk.css.map": "/paprika/static/css/main.ab80326e.chunk.css.map",
+    "static/media/bhogra.png": "/paprika/static/media/bhogra.1de1af23.png",
+    "static/media/bishk.png": "/paprika/static/media/bishk.50b51b1c.png",
+    "static/media/bk.png": "/paprika/static/media/bk.f8b7b4e4.png",
+    "static/media/kshe.png": "/paprika/static/media/kshe.7652bf60.png",
+    "static/media/logo.png": "/paprika/static/media/logo.c7b4b3ff.png",
+    "static/media/madhav.png": "/paprika/static/media/madhav.0e7c1ecc.png",
+    "static/media/sak.png": "/paprika/static/media/sak.bca7fa9d.png",
+    "static/media/vardy.png": "/paprika/static/media/vardy.189a9088.png"
+  }
+}
