@@ -4,6 +4,7 @@ import Login from "./Login";
 import Callback from "./Callback";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Uploader from './Uploader';
+import Feed from './Feed';
 
 function App() {
   
@@ -24,8 +25,9 @@ function App() {
   return (
     
     <div className="App">
-      <Router>
+      <Router basename="/paprika/">
         <Route path="/" exact component={Login} />
+        <Route path="/feed/" exact component={Feed} />
         <Route path="/callback/" component={Callback} />
         <Route path="/upload/" component={Uploader} />
       </Router>

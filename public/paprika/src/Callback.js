@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from 'axios';
+import logo from "./logo.png"
 import { Redirect } from "react-router-dom";
 
 class Callback extends React.Component {
@@ -7,7 +8,6 @@ class Callback extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            statusText: 'Loading...',
             statusValue: 0,
             redirect: false
         };
@@ -20,7 +20,6 @@ class Callback extends React.Component {
             .then((response) => {
             console.log(response);
             this.setState({statusValue: 1});
-            this.setState({statusText: response.data.hello});
             this.setState({redirect: true});
             }).catch((error) => {
             this.setState({statusText: error});
@@ -30,21 +29,31 @@ class Callback extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-          return <Redirect to='/upload' />
+          return <Redirect to='/feed' />
         }
-      }
+    }
+
+    renderLoaer = () => {
+        return {}
+    }
 
 
     render() {
         
 
     return (
-        <div className="login-wrapper">
-            {this.renderRedirect()}
-            <div className="login-box">
-                <h1 className="serif">Berlin Wall</h1>
-                {this.state.statusText}
-                
+        <div className="content-wrapper">
+            <div className="login-wrapper">
+                {this.renderRedirect()}
+                <div className="login-box">
+                    <img className="logo" src={logo} alt="Logo"/>
+                    <h1 className="serif">Berlin Wall</h1>
+                    <div className="lds-ellipsis">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    <div></div></div>
+                </div>
             </div>
         </div>
     )

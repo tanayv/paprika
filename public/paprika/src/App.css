@@ -4,10 +4,20 @@
   height: 100%;
 }
 
+.content-wrapper {
+  width: 100%;
+  margin: 0;
+  height: inherit;
+}
+
 @media (min-width: 500px) {
-  .App {
+  .content-wrapper {
     width: 50%;
     margin: 0 auto;
+  }
+
+  .login-box button {
+    width: 50%;
   }
 }
 
@@ -20,33 +30,141 @@
 }
 
 .login-box {
-  padding: 30px;
-  border: 1px solid #ececec;
   text-align: center;
   border-radius: 4px;
   width: 80%;
 }
 
+.login-box .logo {
+  height: 65px;
+  animation: 2s ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
+}
+
+@-webkit-keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0.6; }
+  100% { opacity:1; }
+}
+
 button {
   font-size: 1.2rem;
-  background: #4a4a4a;
-  color: #fff;
+  background: #fff;
+  color: #000;
+  border: none;
   border-radius: 2px;
   height: 40px;
   outline: none;
   cursor: pointer;
-  transition: background ease-in-out 0.2s;
-  border: none;
+  color: #4a4a4a;
+  border: 1px solid #4a4a4a;
+  transition: all ease-in-out 0.2s;
 }
 
 button:hover {
-  background: #000;
+  color: #000;
+  border: 1px solid #000;
 }
 
 .login-box h1 {
-  margin-bottom: 60px;
+  margin: 10px 0 20px 0;
+  animation: 1s ease 0s normal forwards 1 fadein;
 }
 
 .login-box button {
+  width: 80%;
+}
+
+.feed {
+  height: 100%;
+}
+
+.nav {
   width: 100%;
+  border-bottom: 1px solid #ececec;
+  text-align: center;
+  padding: 10px 0;
+  height: 55px;
+}
+
+.nav h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+/* Feed */
+.member-list {
+  height: calc(100% - 120px);
+  width: 100%;
+  overflow: scroll;
+}
+
+.member-flex {
+  width: 100%;
+  display: flex;
+  padding: 20px 0 0 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.member-tile {
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.member-tile .thumbnail {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(0.9);
+  transition: filter ease-in-out 0.1s;
+}
+
+.member-tile:hover .thumbnail {
+  filter: grayscale(0.15);
+}
+
+.member-tile h1 {
+  font-size: 1.4rem;
+  margin: 15px 0 0 0;
+  text-transform: capitalize;
+}
+
+.member-tile h2 {
+  font-size: 1.1rem;
+  margin: 0px 0 0 0;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+
+.tabuloid {
+  width: 100%;
+  border-top: 1px solid #ececec;
+  height: 65px;
+}
+
+.tabuloid .tab {
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 65px;
+  color: #929292;
+  cursor: pointer;
+}
+
+.tabuloid .tab.active {
+  color: #000;
 }

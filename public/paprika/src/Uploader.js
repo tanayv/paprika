@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 class Uploader extends React.Component {
 
@@ -35,13 +36,25 @@ class Uploader extends React.Component {
 
     render() {
         return (
-            <div className="login-wrapper">
-                <div className="login-box">
-                    <form onSubmit={this.onFormSubmit}>
-                        <h1>File Upload</h1>
-                        <input type="file" name="example" onChange={this.onChange} />
-                        <button type="submit">Upload</button>
-                    </form>
+            <div className="feed">
+                <div className="nav">
+                    <div className="content-wrapper">
+                        <h1 className="serif">Berlin Wall</h1>
+                    </div>
+                </div>
+                <div className="member-list">
+                    <div className="login-box">
+                        <form onSubmit={this.onFormSubmit}>
+                            <input type="file" name="example" onChange={this.onChange} />
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
+                <div className="tabuloid">
+                    <div className="content-wrapper">
+                        <Link to="/feed"><div className="tab">List</div></Link>
+                        <Link to="/upload"><div className="tab active">Upload</div></Link>
+                    </div>
                 </div>
             </div>
         )
