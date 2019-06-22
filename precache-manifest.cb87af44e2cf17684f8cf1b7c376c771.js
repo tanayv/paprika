@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "215a48787ca9add03935138b46913b41",
+    "revision": "22c3f923c68d383d7f6978703418317e",
     "url": "/paprika/index.html"
   },
   {
