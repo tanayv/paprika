@@ -100,7 +100,8 @@ router.get("/data", (req, res) => {
     });
 
     Promise.all([bishkPromise, bkPromise, kshePromise, bhograPromise, madhavPromise, sakPromise, vardyPromise]).then((values) => {
-      res.json(values);
+      res.json(values.data);
+      console.log({data: values});
     }).catch((error) => {
       console.log(error);
       res.json(error);
