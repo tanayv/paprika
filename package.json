@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "chill": "cd public && cd paprika && HTTPS=true npm start"
+    "chill": "cd public && cd paprika && HTTPS=true npm start",
+    "publish": "cd public && cd paprika && npm run deploy"
   },
   "repository": {
     "type": "git",

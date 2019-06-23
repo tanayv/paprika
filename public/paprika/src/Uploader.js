@@ -43,11 +43,13 @@ class Uploader extends React.Component {
                     </div>
                 </div>
                 <div className="member-list">
-                    <div className="login-box">
-                        <form onSubmit={this.onFormSubmit}>
-                            <input type="file" name="example" onChange={this.onChange} />
-                            <button type="submit">Upload</button>
-                        </form>
+                    <div className="content-wrapper">
+                        <div className="login-box">
+                            <form onSubmit={this.onFormSubmit}>
+                                <input type="file" name="example" onChange={this.onChange} />
+                                <button type="submit">Upload</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <div className="tabuloid">

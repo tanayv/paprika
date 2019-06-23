@@ -120,7 +120,11 @@ router.get("/data", (req, res) => {
     
 })
 
-router.post('/upload', upload.single('example'), (req, res, next) => {
+router.post('/upload/:member/:count', upload.single('example'), (req, res, next) => {
+
+    const member = req.params.member;
+    const count = req.params.count;
+
     const encoded = Buffer.from(fs.readFileSync(req.file.path)).toString("base64");
     let payload = {
       "message": "File added using Paprika",
@@ -135,10 +139,14 @@ router.post('/upload', upload.single('example'), (req, res, next) => {
         Authorization: "token " + state.access_token,
       }
     }
-    let path = `https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/test42.png?client_secret=effd0f79f2737a8b2a008b250c029860b36fc380`;
+    let path = `https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/${member}/${count}.png?client_secret=effd0f79f2737a8b2a008b250c029860b36fc380`;
     axios.put(path, payload, config)
       .then(function (response) {
-        res.json({"fur": response.data});
+        res.json({
+          "member": req.params.member,
+          "count": req.params.count,
+          "gitHubResponse": response.data
+        });
       })
       .catch(function (error) {
         res.json(error.response);
