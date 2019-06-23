@@ -100,8 +100,19 @@ router.get("/data", (req, res) => {
     });
 
     Promise.all([bishkPromise, bkPromise, kshePromise, bhograPromise, madhavPromise, sakPromise, vardyPromise]).then((values) => {
-      res.json(values.data);
-      console.log({data: values});
+      
+      values.map((value, i) => {
+        data.bishk = value[0].data;
+        data.bk = value[1].data;
+        data.kshe = value[2].data;
+        data.bhogra = value[3].data;
+        data.madhav = value[4].data;
+        data.sak = value[5].data;
+        data.vardy = value[6].data;
+      })
+      
+      res.json(data);
+      console.log(data);
     }).catch((error) => {
       console.log(error);
       res.json(error);
