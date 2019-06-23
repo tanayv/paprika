@@ -8,21 +8,24 @@ class Callback extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            statusValue: 0,
             redirect: false
         };
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
     
         if (typeof code !== undefined && code !== null) {
-            console.log("RECEIVED CODE", code);
             Axios.get("https://berlinwall.herokuapp.com/api/auth?code="+code)
             .then((response) => {
-            console.log(response);
-            this.setState({statusValue: 1});
-            this.setState({redirect: true});
+
+                Axios.get(`https://berlinwall.herokuapp.com/api/data`).then((response) => {
+                    this.props.transferDataToApp(response.data);
+                    this.setState({redirect: true});
+                }).catch((error) => {
+                    console.log(error);
+                })
+            
             }).catch((error) => {
-            this.setState({statusText: error});
+                this.setState({statusText: error});
             })
         }
     }
@@ -33,14 +36,13 @@ class Callback extends React.Component {
         }
     }
 
-    renderLoaer = () => {
-        return {}
+    returnData = () => {
+
     }
 
 
     render() {
         
-
     return (
         <div className="content-wrapper">
             <div className="login-wrapper">

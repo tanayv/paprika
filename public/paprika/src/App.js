@@ -6,33 +6,36 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Uploader from './Uploader';
 import Feed from './Feed';
 
-function App() {
+class App extends React.Component {
   
+  constructor(props) {
+    super(props);
+    this.state = {
+      memberData: {}
+    };
+  }
+  
+  receiveDataFromCallback = (data) => {
+    this.setState({memberData: data});
+  }
 
-  /* 
+  render = () => {
+    return (
+      <div className="App">
+        <Router>
+          <Route path="/" exact component={Login} />
+          <Route path="/feed/" render={(routeProps) => 
+            <Feed {...routeProps} data={this.state.memberData}/>
+          }/>
+          <Route path="/callback/" render={(routeProps) => 
+            <Callback {...routeProps} transferDataToApp={this.receiveDataFromCallback}/>
+          }/>
+          <Route path="/upload/" component={Uploader} />
+        </Router>
+      </div>
+    );
+  }
   
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://github.com/login/oauth/authorize?client_id=Iv1.ab929d25982c75d7"
-        >
-          Sign In Using GitHub
-        </a>
-      </header>
-      ;
-    </div>
-    */
-  return (
-    
-    <div className="App">
-      <Router basename="/paprika/">
-        <Route path="/" exact component={Login} />
-        <Route path="/feed/" exact component={Feed} />
-        <Route path="/callback/" component={Callback} />
-        <Route path="/upload/" component={Uploader} />
-      </Router>
-    </div>
-  );
 }
 
 export default App;

@@ -75,25 +75,25 @@ router.get("/data", (req, res) => {
       }
     });
 
-    let bhograPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/bk`, {
+    let bhograPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/bhogra`, {
       headers: {
         Authorization: "token " + state.access_token
       }
     });
 
-    let madhavPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/bk`, {
+    let madhavPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/madhav`, {
       headers: {
         Authorization: "token " + state.access_token
       }
     });
 
-    let sakPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/bk`, {
+    let sakPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/sak`, {
       headers: {
         Authorization: "token " + state.access_token
       }
     });
 
-    let vardyPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/bk`, {
+    let vardyPromise = axios.get(`https://api.github.com/repos/tanayv/paprika/contents/public/paprika/public/bucket/vardy`, {
       headers: {
         Authorization: "token " + state.access_token
       }
@@ -101,8 +101,8 @@ router.get("/data", (req, res) => {
 
     Promise.all([bishkPromise, bkPromise, kshePromise, bhograPromise, madhavPromise, sakPromise, vardyPromise]).then((values) => {
       
-      for (let value of values)
-        console.log(value.data || "data is undefined");
+      /*for (let value of values)
+        console.log(value.data || "data is undefined");*/
 
       resData.bishk = values[0].data;
       resData.bk = values[1].data;

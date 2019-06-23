@@ -12,43 +12,57 @@ import { Link } from "react-router-dom";
 const members = [
     {
         name: "bishk",
-        count: 33,
+        contributions: [],
         image: bishkDp
     },
     {
         name: "bk",
-        count: 20,
+        contributions: [],
         image: bkDp
     },
     {
         name: "kshe",
-        count: 18,
+        contributions: [],
         image: ksheDp
     },
     {
         name: "vardy",
-        count: 14,
+        contributions: [],
         image: vardyDp
     },
     {
         name: "bhogra",
-        count: 12,
+        contributions: [],
         image: bhograDp
     },
     {
         name: "madhav",
-        count: 7,
+        contributions: [],
         image: madhavDp
     },
     {
         name: "sak",
-        count: 3,
+        contributions: [],
         image: sakDp
     },
 ]
 
 class Feed extends React.Component {
+
+    constructor(props) {
+        super(props);
+        members[0].contributions = props.data.bishk;
+        members[1].contributions = props.data.bk;
+        members[2].contributions = props.data.kshe;
+        members[3].contributions = props.data.vardy;
+        members[4].contributions = props.data.bhogra;
+        members[5].contributions = props.data.madhav;
+        members[6].contributions = props.data.sak;
+    }
+
+
     render = () => {
+
         return (
             <div className="feed">
                 <div className="nav">
@@ -61,7 +75,7 @@ class Feed extends React.Component {
                         <div className="member-flex">
                             {
                                 members.map((member, index) => (
-                                    <MemberTile name={member.name} count={member.count} image={member.image} key={index}/>
+                                    <MemberTile name={member.name} count={member.contributions.length} image={member.image} key={index}/>
                                 ))
                             }
                         </div>
