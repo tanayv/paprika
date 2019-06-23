@@ -5,6 +5,8 @@ import Callback from "./Callback";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Uploader from './Uploader';
 import Feed from './Feed';
+import FourOThree from './403';
+import Profile from './Profile';
 
 class App extends React.Component {
   
@@ -22,13 +24,17 @@ class App extends React.Component {
   render = () => {
     return (
       <div className="App">
-        <Router>
+        <Router basename="/paprika">
           <Route path="/" exact component={Login} />
+          <Route path="/403" exact component={FourOThree} />
           <Route path="/feed/" render={(routeProps) => 
             <Feed {...routeProps} data={this.state.memberData}/>
           }/>
           <Route path="/callback/" render={(routeProps) => 
             <Callback {...routeProps} transferDataToApp={this.receiveDataFromCallback}/>
+          }/>
+          <Route path="/profile/:name" render={(routeProps) => 
+            <Profile {...routeProps} data={this.state.memberData}/>
           }/>
           <Route path="/upload/" component={Uploader} />
         </Router>

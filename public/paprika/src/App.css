@@ -37,7 +37,7 @@
 
 .login-box .logo {
   height: 65px;
-  animation: 2s ease 0s normal forwards 1 fadein;
+  animation: 1s ease 0s normal forwards 1 fadein;
 }
 
 @keyframes fadein{
@@ -73,7 +73,14 @@ button:hover {
 
 .login-box h1 {
   margin: 10px 0 20px 0;
-  animation: 1s ease 0s normal forwards 1 fadein;
+  animation: 1.5s ease 0s normal forwards 1 fadein;
+}
+
+.login-box h2 {
+  margin: 5px 0 20px 0;
+  color: #bd3e3e;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .login-box button {
@@ -82,6 +89,11 @@ button:hover {
 
 .feed {
   height: 100%;
+}
+
+.feed a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .nav {
@@ -167,4 +179,53 @@ button:hover {
 
 .tabuloid .tab.active {
   color: #000;
+}
+
+.profile-area {
+  height: calc(100% - 120px);
+  width: 100%;
+  overflow: scroll;
+  text-align: center;
+}
+
+.profile-area img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 500px) {
+  .profile-area img {
+    width: 60%;
+  }
+}
+
+.member-circle {
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.member-circle .thumbnail {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: filter ease-in-out 0.1s;
+}
+
+
+.member-circle h1 {
+  font-size: 1.3rem;
+  margin: 15px 0 0 0;
+  text-transform: capitalize;
+}
+
+.member-circle h2 {
+  font-size: 1rem;
+  margin: 0px 0 15px 0;
+  font-weight: 500;
+  color: #4a4a4a;
 }
