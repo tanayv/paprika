@@ -42,7 +42,7 @@ router.get("/auth", (req, res) => {
 });
 
 router.get("/data", (req, res) => {
-    let data = {
+    let resData = {
       "bishk": [],
       "bk": [],
       "kshe": [],
@@ -101,20 +101,18 @@ router.get("/data", (req, res) => {
 
     Promise.all([bishkPromise, bkPromise, kshePromise, bhograPromise, madhavPromise, sakPromise, vardyPromise]).then((values) => {
       
-      console.log(values);
+      for (let value of values)
+        console.log(value.data || "data is undefined");
 
-      values.map((value, i) => {
-        data.bishk = value[0].data;
-        data.bk = value[1].data;
-        data.kshe = value[2].data;
-        data.bhogra = value[3].data;
-        data.madhav = value[4].data;
-        data.sak = value[5].data;
-        data.vardy = value[6].data;
-      })
+      resData.bishk = values[0].data;
+      resData.bk = values[1].data;
+      resData.kshe = values[2].data;
+      resData.bhogra = values[3].data;
+      resData.madhav = values[4].data;
+      resData.sak = values[5].data;
+      resData.vardy = values[6].data;
       
-      res.json(data);
-      console.log(data);
+      res.json(resData);
     }).catch((error) => {
       console.log(error);
       res.json(error);
