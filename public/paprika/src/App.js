@@ -36,7 +36,9 @@ class App extends React.Component {
           <Route path="/profile/:name" render={(routeProps) => 
             <Profile {...routeProps} data={this.state.memberData}/>
           }/>
-          <Route path="/upload/" component={Uploader} />
+          <Route path="/upload/" render={(routeProps) => 
+            <Uploader {...routeProps} data={this.state.memberData}/>
+          }/>
         </Router>
       </div>
     );

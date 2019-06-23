@@ -120,7 +120,7 @@ router.get("/data", (req, res) => {
     
 })
 
-router.post('/upload/:member/:count', upload.single('example'), (req, res, next) => {
+router.post('/upload/:member/:count', upload.single('contra'), (req, res, next) => {
 
     const member = req.params.member;
     const count = req.params.count;

@@ -10,6 +10,16 @@
   height: inherit;
 }
 
+.content-wrapper.height-agnostic {
+  height: initial;
+}
+
+
+.inline-container {
+  display: inline-block;
+}
+
+
 @media (min-width: 500px) {
   .content-wrapper {
     width: 50%;
@@ -228,4 +238,33 @@ button:hover {
   margin: 0px 0 15px 0;
   font-weight: 500;
   color: #4a4a4a;
+}
+
+
+.member-selector {
+  width: 100%;
+  display: flex;
+  overflow: scroll;
+  justify-content: initial;
+}
+
+@media (min-width: 500px) {
+  .member-selector {
+    justify-content: space-around;
+  }
+}
+
+h2.form-field {
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #4a4a4a;
+}
+
+
+.uploader-container {
+  text-align: center;
+  height: calc(100% - 120px);
+  width: 100%;
+  padding: 10px 0 0 0;
 }
