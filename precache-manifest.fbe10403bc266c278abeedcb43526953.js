@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c06873d5761373bc05dff8c86e410d75",
+    "revision": "8c89dbf7ea0834c73a54161c5aa74993",
     "url": "/paprika/index.html"
   },
   {
-    "revision": "d79a7167038ac0efde33",
-    "url": "/paprika/static/css/main.9bd22999.chunk.css"
+    "revision": "a575983ca022698ce1b4",
+    "url": "/paprika/static/css/main.9938ed2d.chunk.css"
   },
   {
-    "revision": "50c1663b20721899087c",
-    "url": "/paprika/static/js/2.fba9c01d.chunk.js"
+    "revision": "9a8584aa4df56209acbc",
+    "url": "/paprika/static/js/2.6680c53f.chunk.js"
   },
   {
-    "revision": "d79a7167038ac0efde33",
-    "url": "/paprika/static/js/main.5751493f.chunk.js"
+    "revision": "a575983ca022698ce1b4",
+    "url": "/paprika/static/js/main.0a845894.chunk.js"
   },
   {
     "revision": "a1490e8ccf55b6774ca2",
