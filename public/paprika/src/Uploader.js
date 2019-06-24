@@ -18,6 +18,13 @@ class Uploader extends React.Component {
 
     constructor(props) {
         super(props);
+        members[0].contributions = props.data.bishk;
+        members[1].contributions = props.data.bk;
+        members[2].contributions = props.data.kshe;
+        members[3].contributions = props.data.vardy;
+        members[4].contributions = props.data.bhogra;
+        members[5].contributions = props.data.madhav;
+        members[6].contributions = props.data.sak;
         this.state = {
             file: null,
             selectedMember: ``,
@@ -42,7 +49,7 @@ class Uploader extends React.Component {
         if (this.state.selectedMember !== `` && this.state.newFileName !== -1)  {
             const url = 'https://berlinwall.herokuapp.com/api/upload/' + this.state.selectedMember + '/' + this.state.newFileName;
             const formData = new FormData();
-            formData.append('contra', file)
+            formData.append('example', file)
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data'
@@ -89,7 +96,7 @@ class Uploader extends React.Component {
                     <div className="content-wrapper height-agnostic">
                         <div className="login-box">
                             <form onSubmit={this.onFormSubmit}>
-                                <input type="file" name="contra" onChange={this.onChange} />
+                                <input type="file" name="example" onChange={this.onChange} />
                                 <button type="submit">Upload</button>
                             </form>
                         </div>

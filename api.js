@@ -120,12 +120,12 @@ router.get("/data", (req, res) => {
     
 })
 
-router.post('/upload/:member/:count', upload.single('contra'), (req, res, next) => {
+router.post('/upload/:member/:count', upload.single('example'), (req, res, next) => {
 
     const member = req.params.member;
     const count = req.params.count;
-
     const encoded = Buffer.from(fs.readFileSync(req.file.path)).toString("base64");
+
     let payload = {
       "message": "File added using Paprika",
       "committer": {
