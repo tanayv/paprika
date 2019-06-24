@@ -8,7 +8,9 @@ import bhograDp from "./assets/bhogra.png";
 import madhavDp from "./assets/madhav.png";
 
 import { Link } from "react-router-dom";
+
 import MemberTile from "./MemberTile";
+import FourOThree from "./403";
 
 const members = [
     {
@@ -65,32 +67,36 @@ class Feed extends React.Component {
     }
 
     render = () => {
-        return (
-            <div className="feed">
-                <div className="nav">
-                    <div className="content-wrapper">
-                        <h1 className="serif">Berlin Wall</h1>
+        if (this.props.data) {
+            return (
+                <div className="feed">
+                    <div className="nav">
+                        <div className="content-wrapper">
+                            <h1 className="serif">Berlin Wall</h1>
+                        </div>
                     </div>
-                </div>
-                <div className="member-list">
-                    <div className="content-wrapper">
-                        <div className="member-flex">
-                            {
-                                members.map((member, index) => (
-                                    <MemberTile name={member.name} count={member.contributions.length} image={member.image} key={index}/>
-                                ))
-                            }
+                    <div className="member-list">
+                        <div className="content-wrapper">
+                            <div className="member-flex">
+                                {
+                                    members.map((member, index) => (
+                                        <MemberTile name={member.name} count={member.contributions.length} image={member.image} key={index}/>
+                                    ))
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div className="tabuloid">
+                        <div className="content-wrapper">
+                            <Link to="/feed"><div className="tab active">List</div></Link>
+                            <Link to="/upload"><div className="tab">Upload</div></Link>
                         </div>
                     </div>
                 </div>
-                <div className="tabuloid">
-                    <div className="content-wrapper">
-                        <Link to="/feed"><div className="tab active">List</div></Link>
-                        <Link to="/upload"><div className="tab">Upload</div></Link>
-                    </div>
-                </div>
-            </div>
-        )
+            )
+        }
+        else 
+            return <FourOThree/>
     }
 }
 

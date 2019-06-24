@@ -6,7 +6,10 @@ import vardyDp from "./assets/vardy.png";
 import sakDp from "./assets/sak.png";
 import bhograDp from "./assets/bhogra.png";
 import madhavDp from "./assets/madhav.png";
+
 import MemberCircle from "./MemberCircle";
+import FourOThree from "./403";
+
 import { Link } from "react-router-dom";
 
 class Profile extends React.Component {
@@ -26,30 +29,35 @@ class Profile extends React.Component {
     }
 
     render() {
-        return (
-            <div className="feed">
-                <div className="nav">
-                    <div className="content-wrapper">
-                        <h1 className="serif">Berlin Wall</h1>
+        if (this.state.member.contributions !== 0) {
+            return (
+                <div className="feed">
+                    <div className="nav">
+                        <div className="content-wrapper">
+                            <h1 className="serif">Berlin Wall</h1>
+                        </div>
+                    </div>
+                    <div className="profile-area">
+                        <div className="content-wrapper">
+                            <MemberCircle name={this.state.member.name} count={this.state.member.contributions.length} image={this.state.member.image}/>
+                            {this.state.member.contributions.map((cont, i) => (
+                                <img src={cont.download_url} alt={cont.download_url}></img>
+                            ))}
+                        </div>
+                        
+                    </div>
+                    <div className="tabuloid">
+                        <div className="content-wrapper">
+                            <Link to="/feed"><div className="tab active">List</div></Link>
+                            <Link to="/upload"><div className="tab">Upload</div></Link>
+                        </div>
                     </div>
                 </div>
-                <div className="profile-area">
-                    <div className="content-wrapper">
-                        <MemberCircle name={this.state.member.name} count={this.state.member.contributions.length} image={this.state.member.image}/>
-                        {this.state.member.contributions.map((cont, i) => (
-                            <img src={cont.download_url} alt={cont.download_url}></img>
-                        ))}
-                    </div>
-                    
-                </div>
-                <div className="tabuloid">
-                    <div className="content-wrapper">
-                        <Link to="/feed"><div className="tab active">List</div></Link>
-                        <Link to="/upload"><div className="tab">Upload</div></Link>
-                    </div>
-                </div>
-            </div>
-        )
+            )
+        }
+        else 
+            return <FourOThree/>
+        
     }
 }
 
